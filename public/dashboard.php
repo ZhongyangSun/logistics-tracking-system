@@ -75,43 +75,11 @@ require_once __DIR__ . '/../views/partials/header.php';
 
 <h2>Recent Shipments</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tracking Number</th>
-            <th>Sender</th>
-            <th>Receiver</th>
-            <th>Origin</th>
-            <th>Destination</th>
-            <th>Status</th>
-            <th>Created By</th>
-            <th>Created At</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php if (empty($recentShipments)): ?>
-            <tr>
-                <td colspan="9">No shipments found.</td>
-            </tr>
-        <?php else: ?>
-            <?php foreach ($recentShipments as $shipment): ?>
-                <tr>
-                    <td><?= e($shipment['tracking_number']) ?></td>
-                    <td><?= e($shipment['sender_name']) ?></td>
-                    <td><?= e($shipment['receiver_name']) ?></td>
-                    <td><?= e($shipment['origin']) ?></td>
-                    <td><?= e($shipment['destination']) ?></td>
-                    <td><?= e($shipment['current_status']) ?></td>
-                    <td><?= e($shipment['created_by_username'] ?? 'sys_user') ?></td>
-                    <td><?= e($shipment['created_at']) ?></td>
-                    <td>
-                        <a href="shipment_detail.php?id=<?= (int)$shipment['id'] ?>">View</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </tbody>
-</table>
+<?php
+$shipments = $recentShipments;
+$showActions = false;
+$emptyMessage = 'No recent shipments found.';
+require __DIR__ . '/../views/partials/shipments_table.php';
+?>
 
 <?php require_once __DIR__ . '/../views/partials/footer.php'; ?>

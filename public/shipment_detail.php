@@ -157,7 +157,7 @@ require_once __DIR__ . '/../views/partials/header.php';
                     <tr>
                         <td><?= e($row['status']) ?></td>
                         <td><?= e($row['note']) ?></td>
-                        <td><?= e($row['updated_by_username'] ?? 'Unknown') ?></td>
+                        <td><?= e($row['updated_by_username'] ?? 'sys_user') ?></td>
                         <td><?= e($row['created_at']) ?></td>
                     </tr>
                 <?php endforeach; ?>
