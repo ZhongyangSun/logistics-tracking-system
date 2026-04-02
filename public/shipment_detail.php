@@ -91,7 +91,7 @@ require_once __DIR__ . '/../views/partials/header.php';
 
             <div class="info-row">
                 <span class="info-label">Created By</span>
-                <span class="info-value"><?= e($shipment['created_by_username'] ?? 'Unknown') ?></span>
+                <span class="info-value"><?= e($shipment['created_by_username'] ?? 'sys_user') ?></span>
             </div>
 
             <div class="info-row">
